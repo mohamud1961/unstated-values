@@ -134,6 +134,7 @@ def main():
                 if not finished:
                     x.update(kind="unfinished", correct=False, assumed=False)
                 x["reasoning_tail"] = (reasoning or "")[-1500:]
+                x["reasoning_chars"] = len(reasoning or "")  # deliberation length (FINDINGS §15e)
                 x["secs"] = round(time.time() - t0, 1)
                 fh.write(json.dumps(x) + "\n")
                 fh.flush()
